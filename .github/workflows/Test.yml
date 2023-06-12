@@ -13,6 +13,8 @@ jobs:
         xcodebuild -version
         swift --version
     - uses: actions/checkout@v1
+    - name: Switch Xcode version
+      run: sudo xcode-select -s "/Applications/Xcode_14.3.app"
     - name: Checkout submodules
       run: |
         git submodule update --init
@@ -28,4 +30,4 @@ jobs:
         DEVELOPER_DIR: /Applications/Xcode_14.3.app
       run: |
         xcodebuild test -project CotEditor.xcodeproj \
-        -scheme UITests CODE_SIGNING_ALLOWED=NO
+        -scheme CotEditor CODE_SIGNING_ALLOWED=NO
