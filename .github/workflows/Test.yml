@@ -19,6 +19,10 @@ jobs:
     - name: Lint Swift
       run: |
         swiftlint
+    - name: Collect Workflow Telemetry
+      uses: AlexPerathoner/workflow-telemetry-action@v0.9
+      with:
+        metric_frequency_thousands_of_second: 100
     - name: Unit Test
       env:
         DEVELOPER_DIR: /Applications/Xcode_14.3.app
